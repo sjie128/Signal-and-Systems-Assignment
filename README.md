@@ -53,20 +53,26 @@ A **series RLC protection circuit** is proposed with the following parameters:
 ```
 Signal-and-Systems-Assignment/
 │
-├── 📄 README.md                        ← You are here
+├── 📄 README.md                        
 │
 ├── 📝 report/
-│   └── KIE2006_Assignment_Report.pdf   ← Final submission (max 15 pages)
+│   └── KIE2006_Assignment_Report.pdf   
 │
-├── 💻 matlab/
-│   └── rlc_transient.m                 ← MATLAB code for Task (c)
-│
-├── 📊 plots/
-│   ├── rlc_transient_response.png      ← Transient current i(t) graph
-│   └── rlc_pzmap.png                   ← Pole-Zero map
+├── 💻 explanation/
+│   └── series_RLC.m                
+│   └── zero_plot.m
+│   └── zero_diagram.py
+│   └── poles_exp.png
+│   └── RLC_exp.png
+│   └── Figure_1.png
+│   
+├── 📊 graphs/
+│   ├── poles_graph.png
+│   └── transient_response.m
+│   └── transient_response.png      
 │
 └── 📖 references/
-    └── references.md                   ← All cited references
+    └── references.md                   
 ```
 
 ---
@@ -169,9 +175,10 @@ s2 = -20.0000 - 97.9796j
 | # | Field | Application | RLC Equivalent |
 |---|---|---|---|
 | 1 | Mechanical Engineering | Car suspension (mass-spring-damper) | m↔L, b↔R, k↔1/C |
-| 2 | Biomedical Engineering | Cardiovascular Windkessel model | blood inertia↔L, vessel resistance↔R, arterial compliance↔C |
+| 2 | Civil Engineering | Seismic Response | Floor mass↔L, structural damping↔R, structural stiffness↔C |
+| 3 | Control Engineering | DC Motor Speed Control | Armature inductance↔L, armature resistance↔R, rotor inertia↔C |
 
-Both systems share the same governing equation:
+All systems share the same governing equation:
 ```
 m·x''(t) + b·x'(t) + k·x(t) = F(t)
 ```
@@ -203,13 +210,24 @@ saveas(figure(2), 'plots/rlc_pzmap.png');
 
 ## 📚 References
 
-1. Hayt, W., Kemmerly, J. & Durbin, S. (2019). *Engineering Circuit Analysis*, 9th ed. McGraw-Hill.
-2. Oppenheim, A. & Willsky, A. (1997). *Signals and Systems*, 2nd ed. Prentice Hall.
-3. Nise, N. (2019). *Control Systems Engineering*, 8th ed. Wiley.
-4. MathWorks (2024). MATLAB Control System Toolbox Documentation. https://www.mathworks.com/help/control
-5. United Nations (2015). *Transforming Our World: The 2030 Agenda for Sustainable Development*. https://sdgs.un.org/goals
-6. IRENA (2022). *Renewable Power Generation Costs in 2022*. https://www.irena.org/Publications
-
+1. Dr Chris P.Jobling, “Unit 4.5: Using Laplace Transforms for Circuit Analysis,” 2023. [Online]. Available:https://cpjobling.github.io/eg-150-textbook/laplace_transform/5/circuit_analysis.html. [Accessed: 27 May 2026]
+2. Scribd, “Design of passive RC high-pass and low-pass filters using Laplace transform,” 2026. [Online]. Available:https://www.scribd.com/document/961010829/Design-of-passive-RC-high-pass-and-low-pass-filters-using-Laplace-transform. [Accessed: 27 May 2026]
+3. Electrical Academia, “Laplace Transform: Introduction and Example | Electrical Academia,” 2017. [Online]. Available: https://electricalacademia.com/signals-and-systems/introduction-to-the-laplace-transform/ . [Accessed: 27 May 2026]
+4. LibreTexts Engineering, “11.1 Laplace Transform,” 2020. [Online]. Available: https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Signal_Processing_and_Modeling/Signals_and_Systems_(Baraniuk_et_al.)/11:_Laplace_Transform_and_Continuous_Time_System_Design/11.01:_Laplace_Transform. [Accessed: 27 May 2026]
+5. GeeksforGeeks, “Laplace Transform,” 2024. [Online]. Available: https://www.geeksforgeeks.org/maths/laplace-transform/ . [Accessed: 27 May 2026]
+6. AnalogCircuitDesign, “Laplace Transform: Theory, Properties, and Engineering Applications,” 2025. [Online]. Available: https://analogcircuitdesign.com/laplace-transform/#inductor . [Accessed: 28 May 2026]
+7. Electrical Academia, “Laplace Transform Properties in Signal and Systems | Electrical Academia,”, 2017. [Online]. Available: https://electricalacademia.com/signals-and-systems/11-most-important-laplace-transform-properties-in-signal-and-systems/. [Accessed: 28 May 2026]
+8. This vs. That, “Frequency Domain vs. Time Domain - What’s the Difference? | This vs. That,” 2023. [Online]. Available: https://thisvsthat.io/frequency-domain-vs-time-domain#google_vignette . [Accessed: 28 May 2026]
+9. ControlSystemsAcademy, “Relationship between s/z planes and time domain,” 2017. [Online]. Available: https://controlsystemsacademy.com/0003/0003.html . [Accessed: 28 May 2026]
+10. LibreTexts Engineering, “11.5: Poles and Zeros in the S-Plane,” 2020. [Online]. Available: https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Signal_Processing_and_Modeling/Signals_and_Systems_(Baraniuk_et_al.)/11%3A_Laplace_Transform_and_Continuous_Time_System_Design/11.05%3A_Poles_and_Zeros_in_the_S-Plane . [Accessed: 28 May 2026]
+11. Fiveable, “Laplace transform properties and techniques,” 2018. [Online]. Available: https://fiveable.me/electrical-circuits-systems-ii/unit-10/laplace-transform-properties-techniques/study-guide/XR1d4UdsXad2bjS3 . [Accessed: 28 May 2026]
+12. P.S. Gandhi, “Concept of Stability, Poles, Concept of Stability, Poles, Zeros and Zeros and Routh Routh ‘ ‘ s s Criterion Criterion,” [Online]. Available: https://www.me.iitb.ac.in/~gandhi/me309/lectures/11n12n13_StabilityPolesZerosConcept.pdf . [Accessed: 28 May 2026]
+13. Scienceinsights, “What Are Laplace Transforms Used For in Practice?,” 2026. [Online]. Available: https://scienceinsights.org/what-are-laplace-transforms-used-for-in-practice/ . [Accessed: 28 May 2026]
+14. Scribd, “Analog RLC en Mass Spring Das Pot,” 2026. [Online]. Available: https://www.scribd.com/document/73131816/Analogy-RLC-en-Mass-Spring-Dash-Pot . [Accessed: 28 May 2026]
+15. StudyElectrical, “Time Domain Analysis vs Frequency Domain Analysis,” 2023. [Online]. Available: https://studyelectrical.com/2023/05/time-domain-analysis-vs-frequency-domain-analysis.html . [Accessed: 29 May 2026]
+16. Gayathri Nair, “Unlocking the potential of regional interconnections: Technical and regulatory harmonisation of grid codes,” 2026. [Online].  Available: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/May/IRENA_INN_Unlocking_regional_connectors_2026.pdf . [Accessed: 29 May 2026]
+17. GeeksforGeeks, “Laplace Transform in Circuit Analysis,” 2023. [Online]. Available: https://www.geeksforgeeks.org/electronics-engineering/laplace-transform-in-circuit-analysis/ . [Accessed: 29 May 2026]
+18. Khan Academy, “RLC natural response - intuition,”  [Online]. Available: https://www.khanacademy.org/science/electrical-engineering/ee-circuit-analysis-topic/ee-natural-and-forced-response/a/ee-rlc-natural-response-intuition . [Accessed: 29 May 2026]
 ---
 
 ## 👤 Assignment Details
